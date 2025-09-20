@@ -2,15 +2,67 @@
 class BMadTutorial {
     constructor() {
         this.currentSection = 'intro';
-        this.completedSections = new Set();
         this.init();
     }
 
     init() {
-        this.loadProgress();
         this.bindEvents();
         this.initHighlighting();
+
+        // 确定要显示的章节
+        const sectionToLoad = this.determineSectionToLoad();
+
+        // 直接加载确定的章节，不显示"欢迎回来"页面
+        this.loadSection(sectionToLoad);
     }
+
+    // 确定要加载的章节
+    determineSectionToLoad() {
+        // 检查URL hash
+        const urlHash = this.getURLHash();
+        if (urlHash && this.isValidSection(urlHash)) {
+            return urlHash;
+        }
+
+        // 默认返回intro
+        return 'intro';
+    }
+
+    // 验证章节是否有效
+    isValidSection(section) {
+        const validSections = [
+            'intro', 'installation', 'first-project', 'basic-concepts',
+            'agents', 'workflows', 'templates', 'project-management',
+            'custom-agents', 'expansion-packs', 'architecture', 'optimization',
+            'case-study-web', 'case-study-api', 'case-study-creative', 'troubleshooting'
+        ];
+        return validSections.includes(section);
+    }
+
+
+    // 获取章节标题
+    getSectionTitle(section) {
+        const titles = {
+            'intro': '什么是 BMAD-METHOD',
+            'installation': '环境准备与安装',
+            'first-project': '第一个项目',
+            'basic-concepts': '核心概念理解',
+            'agents': '智能体系统深入',
+            'workflows': '工作流设计',
+            'templates': '模板系统',
+            'project-management': '项目管理实践',
+            'custom-agents': '自定义智能体',
+            'expansion-packs': '扩展包开发',
+            'architecture': '架构设计模式',
+            'optimization': '性能优化',
+            'case-study-web': 'Web应用开发案例',
+            'case-study-api': 'API服务开发案例',
+            'case-study-creative': '创意写作案例',
+            'troubleshooting': '常见问题解决'
+        };
+        return titles[section] || section;
+    }
+
 
     bindEvents() {
         // 导航点击事件
@@ -40,6 +92,16 @@ class BMadTutorial {
                 this.previousSection();
             }
         });
+
+        // 监听浏览器后退/前进按钮
+        window.addEventListener('popstate', (e) => {
+            const urlHash = this.getURLHash();
+            if (urlHash && this.isValidSection(urlHash)) {
+                this.loadSection(urlHash, false); // false表示不更新URL
+            } else if (!urlHash) {
+                this.loadSection('intro', false);
+            }
+        });
     }
 
     initHighlighting() {
@@ -47,7 +109,7 @@ class BMadTutorial {
         hljs.highlightAll();
     }
 
-    async loadSection(sectionName) {
+    async loadSection(sectionName, updateURL = true) {
         try {
             this.currentSection = sectionName;
 
@@ -58,11 +120,10 @@ class BMadTutorial {
             const content = await this.fetchSectionContent(sectionName);
             this.displayContent(content);
 
-            // 标记为已完成
-            this.markAsCompleted(sectionName);
-
-            // 更新进度
-            this.updateProgress();
+            // 只更新URL，不保存进度
+            if (updateURL) {
+                this.updateURLHash(sectionName);
+            }
 
         } catch (error) {
             console.error('加载章节失败:', error);
@@ -131,40 +192,23 @@ class BMadTutorial {
         }
     }
 
-    markAsCompleted(sectionName) {
-        this.completedSections.add(sectionName);
-        this.saveProgress();
-    }
-
-    updateProgress() {
-        const totalSections = document.querySelectorAll('[data-section]').length;
-        const completedCount = this.completedSections.size;
-        const percentage = Math.round((completedCount / totalSections) * 100);
-
-        document.getElementById('progress-text').textContent = `${percentage}%`;
-        document.getElementById('progress-bar').style.width = `${percentage}%`;
-    }
-
-    saveProgress() {
-        localStorage.setItem('bmad-tutorial-progress', JSON.stringify({
-            currentSection: this.currentSection,
-            completedSections: Array.from(this.completedSections)
-        }));
-    }
-
-    loadProgress() {
-        const saved = localStorage.getItem('bmad-tutorial-progress');
-        if (saved) {
-            const data = JSON.parse(saved);
-            this.currentSection = data.currentSection || 'intro';
-            this.completedSections = new Set(data.completedSections || []);
-            this.updateProgress();
+    // URL Hash 管理
+    updateURLHash(section) {
+        if (section) {
+            window.history.replaceState(null, null, `#${section}`);
+        } else {
+            window.history.replaceState(null, null, window.location.pathname);
         }
     }
 
+    getURLHash() {
+        return window.location.hash.substring(1); // 移除 # 符号
+    }
+
+
     toggleMobileMenu() {
         const sidebar = document.getElementById('sidebar');
-        sidebar.classList.toggle('-translate-x-full');
+        sidebar.classList.toggle('show');
     }
 
     nextSection() {
@@ -205,13 +249,36 @@ class BMadTutorial {
     getIntroContent() {
         return `
             <div class="prose prose-lg max-w-none">
-                <h1>什么是 BMAD-METHOD™</h1>
-                <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
-                    <p class="text-blue-800"><strong>BMAD-METHOD™</strong> 是一个通用AI智能体框架，旨在变革多个领域的AI驱动开发。</p>
+                <div class="title-1">什么是 BMAD-METHOD</div>
+
+                <!-- GitHub 项目信息 -->
+                <div class="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <div class="title-3">GitHub 开源项目</div>
+                            <p class="text-gray-600 mb-3">BMAD-METHOD™ 是一个开源项目，欢迎查看源代码、提交问题或参与贡献。</p>
+                            <a href="https://github.com/bmad-code-org/BMAD-METHOD" target="_blank"
+                               class="inline-flex items-center px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition">
+                                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+                                </svg>
+                                访问 GitHub 仓库
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
-                <h2>核心理念</h2>
-                <p>BMAD-METHOD 代表 "Agentic Agile Driven Development"（智能体敏捷驱动开发），它通过两个核心创新来解决传统开发中的痛点：</p>
+                <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
+                    <p class="text-blue-800"><strong>BMAD-METHOD™</strong> 全称为 <strong>Blockchain Multi-Agent Development METHOD</strong>（区块链多智能体开发方法），是一个通用AI智能体框架，旨在变革多个领域的AI驱动开发。</p>
+                </div>
+
+                <div class="title-2">核心理念</div>
+                <p>BMAD-METHOD 通过两个核心创新来解决传统开发中的痛点：</p>
 
                 <div class="grid md:grid-cols-2 gap-6 my-8">
                     <div class="bg-white p-6 rounded-lg shadow-md border">
@@ -224,7 +291,7 @@ class BMadTutorial {
                     </div>
                 </div>
 
-                <h2>主要特性</h2>
+                <div class="title-2">主要特性</div>
                 <ul>
                     <li><strong>消除规划不一致和上下文丢失</strong> - 通过结构化的智能体协作</li>
                     <li><strong>多领域支持</strong> - 软件开发、创意写作、商业策略、个人健康等</li>
@@ -232,28 +299,28 @@ class BMadTutorial {
                     <li><strong>灵活的界面</strong> - 支持CLI和Web UI</li>
                 </ul>
 
-                <h2>适用场景</h2>
+                <div class="title-2">适用场景</div>
                 <div class="space-y-4">
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <h4 class="font-semibold">🖥️ 软件开发</h4>
+                        <div class="title-4">🖥️ 软件开发</div>
                         <p>从需求分析到架构设计，再到代码实现的完整开发流程</p>
                     </div>
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <h4 class="font-semibold">✍️ 创意写作</h4>
+                        <div class="title-4">✍️ 创意写作</div>
                         <p>结构化的内容创作和编辑流程</p>
                     </div>
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <h4 class="font-semibold">📈 商业策略</h4>
+                        <div class="title-4">📈 商业策略</div>
                         <p>市场分析、商业计划和战略规划</p>
                     </div>
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <h4 class="font-semibold">🏥 个人健康</h4>
+                        <div class="title-4">🏥 个人健康</div>
                         <p>健康管理和生活方式优化</p>
                     </div>
                 </div>
 
                 <div class="mt-8 p-6 bg-green-50 border border-green-200 rounded-lg">
-                    <h3 class="text-green-800 font-semibold mb-2">💡 为什么选择 BMAD-METHOD？</h3>
+                    <div class="title-3 text-green-800">💡 为什么选择 BMAD-METHOD？</div>
                     <p class="text-green-700">传统的开发方法常常面临需求变更、上下文丢失、团队协作困难等问题。BMAD-METHOD通过智能体系统提供了一个系统性的解决方案，确保从想法到实现的每个环节都保持清晰和一致。</p>
                 </div>
 

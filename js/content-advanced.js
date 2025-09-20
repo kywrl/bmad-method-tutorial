@@ -4,15 +4,15 @@
 BMadTutorial.prototype.getCustomAgentsContent = function() {
     return `
         <div class="prose prose-lg max-w-none">
-            <h1>自定义智能体开发</h1>
+            <div class="title-1">自定义智能体开发</div>
 
             <p class="text-xl text-gray-600 mb-6">学习如何创建专门的智能体来满足特定的业务需求和技术要求。</p>
 
-            <h2>智能体开发基础</h2>
+            <div class="title-2">智能体开发基础</div>
             <p>创建自定义智能体需要理解BMAD的智能体架构和设计原则：</p>
 
             <div class="bg-blue-50 p-6 rounded-lg my-6">
-                <h3 class="text-blue-800 font-semibold mb-3">🏗️ 智能体设计原则</h3>
+                <div class="title-3 text-blue-800">🏗️ 智能体设计原则</div>
                 <ul class="text-blue-700 space-y-2">
                     <li><strong>单一职责</strong> - 每个智能体专注于特定领域</li>
                     <li><strong>上下文感知</strong> - 能够理解和利用项目上下文</li>
@@ -22,7 +22,7 @@ BMadTutorial.prototype.getCustomAgentsContent = function() {
                 </ul>
             </div>
 
-            <h2>智能体文件结构</h2>
+            <div class="title-2">智能体文件结构</div>
             <p>每个自定义智能体都包含多个组件：</p>
 
             <pre><code class="language-text">bmad-core/agents/custom-security-expert/
@@ -43,7 +43,7 @@ BMadTutorial.prototype.getCustomAgentsContent = function() {
     ├── agent-behavior.test.js
     └── output-validation.test.js</code></pre>
 
-            <h2>智能体定义文件</h2>
+            <div class="title-2">智能体定义文件</div>
             <p>创建详细的智能体定义：</p>
 
             <pre><code class="language-markdown"># BMad-SecurityExpert
@@ -219,7 +219,7 @@ BMadTutorial.prototype.getCustomAgentsContent = function() {
 - 参与安全社区和研究
 - 更新合规性知识</code></pre>
 
-            <h2>配置文件设计</h2>
+            <div class="title-2">配置文件设计</div>
             <p>为智能体创建灵活的配置系统：</p>
 
             <pre><code class="language-yaml"># config.yml
@@ -291,7 +291,7 @@ performance_tuning:
     deep_scan: "30m"
     comprehensive_audit: "2h"</code></pre>
 
-            <h2>专用工具开发</h2>
+            <div class="title-2">专用工具开发</div>
             <p>为智能体开发专门的工具和插件：</p>
 
             <pre><code class="language-javascript">// tools/vulnerability-scanner.js
@@ -441,7 +441,7 @@ class ComplianceChecker {
     }
 }</code></pre>
 
-            <h2>智能体测试和验证</h2>
+            <div class="title-2">智能体测试和验证</div>
             <p>确保自定义智能体的质量和可靠性：</p>
 
             <pre><code class="language-javascript">// tests/agent-behavior.test.js
@@ -528,7 +528,7 @@ describe('SecurityExpert Agent', () => {
     });
 });</code></pre>
 
-            <h2>智能体部署和集成</h2>
+            <div class="title-2">智能体部署和集成</div>
             <p>将自定义智能体集成到BMAD项目中：</p>
 
             <pre><code class="language-bash"># 智能体部署命令
@@ -547,7 +547,7 @@ bmad project add-agent security-expert --role=security-review
 bmad agent configure security-expert --collaborate-with=architect,developer</code></pre>
 
             <div class="bg-yellow-50 p-4 rounded-lg my-6">
-                <h3 class="text-yellow-800 font-semibold mb-2">⚠️ 开发注意事项</h3>
+                <div class="title-3 text-yellow-800">⚠️ 开发注意事项</div>
                 <ul class="text-yellow-700 space-y-1">
                     <li>• 确保智能体定义明确且具体，避免职责重叠</li>
                     <li>• 实施充分的错误处理和异常恢复机制</li>
@@ -573,16 +573,16 @@ bmad agent configure security-expert --collaborate-with=architect,developer</cod
 BMadTutorial.prototype.getExpansionPacksContent = function() {
     return `
         <div class="prose prose-lg max-w-none">
-            <h1>扩展包开发</h1>
+            <div class="title-1">扩展包开发</div>
 
             <p class="text-xl text-gray-600 mb-6">学习如何创建BMAD扩展包，将框架扩展到新的领域和用例。</p>
 
-            <h2>扩展包概念</h2>
+            <div class="title-2">扩展包概念</div>
             <p>扩展包是BMAD的模块化扩展机制，允许为特定领域或技术栈创建专门的智能体、工作流和模板集合：</p>
 
             <div class="grid md:grid-cols-2 gap-6 my-8">
                 <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
-                    <h3 class="text-blue-800 font-semibold mb-3">🎯 扩展包的价值</h3>
+                    <div class="title-3 text-blue-800">🎯 扩展包的价值</div>
                     <ul class="text-blue-700 space-y-2">
                         <li>• 领域专业化支持</li>
                         <li>• 最佳实践封装</li>
@@ -592,7 +592,7 @@ BMadTutorial.prototype.getExpansionPacksContent = function() {
                     </ul>
                 </div>
                 <div class="bg-green-50 p-6 rounded-lg border border-green-200">
-                    <h3 class="text-green-800 font-semibold mb-3">📦 扩展包类型</h3>
+                    <div class="title-3 text-green-800">📦 扩展包类型</div>
                     <ul class="text-green-700 space-y-2">
                         <li>• 技术栈包 (React, Vue, Python)</li>
                         <li>• 行业包 (金融, 医疗, 电商)</li>
@@ -603,7 +603,7 @@ BMadTutorial.prototype.getExpansionPacksContent = function() {
                 </div>
             </div>
 
-            <h2>扩展包结构</h2>
+            <div class="title-2">扩展包结构</div>
             <p>标准的BMAD扩展包结构：</p>
 
             <pre><code class="language-text">my-expansion-pack/
@@ -642,7 +642,7 @@ BMadTutorial.prototype.getExpansionPacksContent = function() {
     ├── workflows.test.js
     └── integration.test.js</code></pre>
 
-            <h2>扩展包配置文件</h2>
+            <div class="title-2">扩展包配置文件</div>
             <p>定义扩展包的核心配置：</p>
 
             <pre><code class="language-yaml"># expansion-pack.yml
@@ -842,7 +842,7 @@ configuration:
       options: ["react-router", "reach-router", "next-router"]
       default: "react-router"</code></pre>
 
-            <h2>智能体团队配置</h2>
+            <div class="title-2">智能体团队配置</div>
             <p>为扩展包创建专门的智能体团队：</p>
 
             <pre><code class="language-yaml"># agent-teams/frontend-team.yml
@@ -949,7 +949,7 @@ quality_gates:
     - criteria: "Bundle大小 <= 预算限制"
       enforced_by: "tech_lead"</code></pre>
 
-            <h2>扩展包发布和分发</h2>
+            <div class="title-2">扩展包发布和分发</div>
             <p>准备扩展包的发布和分发：</p>
 
             <pre><code class="language-json">{
@@ -1001,7 +1001,7 @@ quality_gates:
   }
 }</code></pre>
 
-            <h2>扩展包使用和管理</h2>
+            <div class="title-2">扩展包使用和管理</div>
             <p>用户如何安装和使用扩展包：</p>
 
             <pre><code class="language-bash"># 安装扩展包
@@ -1029,7 +1029,7 @@ bmad init my-react-app --pack=@company/bmad-react-pack
 bmad project add-pack @company/bmad-react-pack</code></pre>
 
             <div class="bg-green-50 p-4 rounded-lg my-6">
-                <h3 class="text-green-800 font-semibold mb-2">🚀 扩展包开发最佳实践</h3>
+                <div class="title-3 text-green-800">🚀 扩展包开发最佳实践</div>
                 <ul class="text-green-700 space-y-1">
                     <li>• <strong>领域专注</strong> - 专注于特定的技术栈或业务领域</li>
                     <li>• <strong>向后兼容</strong> - 保持API的向后兼容性</li>

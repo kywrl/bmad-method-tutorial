@@ -2,11 +2,11 @@
 BMadTutorial.prototype.getAgentsContent = function() {
     return `
         <div class="prose prose-lg max-w-none">
-            <h1>智能体系统深入</h1>
+            <div class="title-1">智能体系统深入</div>
 
             <p class="text-xl text-gray-600 mb-6">深入了解BMAD的智能体系统，学习如何配置、使用和优化智能体。</p>
 
-            <h2>智能体架构</h2>
+            <div class="title-2">智能体架构</div>
             <p>每个BMAD智能体都是一个独立的markdown文件，定义了角色、能力和行为模式：</p>
 
             <pre><code class="language-markdown"># BMad-Analyst 智能体
@@ -39,7 +39,7 @@ BMadTutorial.prototype.getAgentsContent = function() {
 - 提供多个备选方案
 - 标注信息来源和可信度</code></pre>
 
-            <h2>智能体团队 (Agent Teams)</h2>
+            <div class="title-2">智能体团队 (Agent Teams)</div>
             <p>智能体团队允许多个智能体协作完成复杂任务：</p>
 
             <pre><code class="language-yaml"># planning-team.yml
@@ -64,14 +64,14 @@ coordination:
   shared_context: true
   output_integration: true</code></pre>
 
-            <h2>智能体配置和自定义</h2>
+            <div class="title-2">智能体配置和自定义</div>
             <p>你可以通过配置文件自定义智能体的行为：</p>
 
             <div class="bg-gray-50 p-6 rounded-lg my-6">
-                <h3 class="font-semibold mb-4">配置选项</h3>
+                <div class="title-3">配置选项</div>
                 <div class="grid md:grid-cols-2 gap-4">
                     <div>
-                        <h4 class="font-medium text-purple-600">行为配置</h4>
+                        <div class="title-4 text-purple-600">行为配置</div>
                         <ul class="text-sm space-y-1 mt-2">
                             <li>• 温度参数 (creativity)</li>
                             <li>• 响应长度 (verbosity)</li>
@@ -80,7 +80,7 @@ coordination:
                         </ul>
                     </div>
                     <div>
-                        <h4 class="font-medium text-blue-600">集成配置</h4>
+                        <div class="title-4 text-blue-600">集成配置</div>
                         <ul class="text-sm space-y-1 mt-2">
                             <li>• 外部API集成</li>
                             <li>• 数据源配置</li>
@@ -110,7 +110,7 @@ coordination:
   }
 }</code></pre>
 
-            <h2>智能体通信协议</h2>
+            <div class="title-2">智能体通信协议</div>
             <p>智能体之间通过标准化的消息格式进行通信：</p>
 
             <pre><code class="language-json">{
@@ -132,29 +132,29 @@ coordination:
   }
 }</code></pre>
 
-            <h2>智能体生命周期管理</h2>
+            <div class="title-2">智能体生命周期管理</div>
             <p>了解智能体的生命周期有助于更好地管理和调试：</p>
 
             <div class="space-y-4">
                 <div class="bg-white p-4 rounded-lg shadow border">
-                    <h4 class="font-semibold text-green-600">1. 初始化阶段</h4>
+                    <div class="title-4 text-green-600">1. 初始化阶段</div>
                     <p class="text-gray-600">加载配置、建立上下文、准备工具链</p>
                 </div>
                 <div class="bg-white p-4 rounded-lg shadow border">
-                    <h4 class="font-semibold text-blue-600">2. 激活阶段</h4>
+                    <div class="title-4 text-blue-600">2. 激活阶段</div>
                     <p class="text-gray-600">接收任务、分析需求、制定工作计划</p>
                 </div>
                 <div class="bg-white p-4 rounded-lg shadow border">
-                    <h4 class="font-semibold text-orange-600">3. 执行阶段</h4>
+                    <div class="title-4 text-orange-600">3. 执行阶段</div>
                     <p class="text-gray-600">执行任务、生成输出、与其他智能体通信</p>
                 </div>
                 <div class="bg-white p-4 rounded-lg shadow border">
-                    <h4 class="font-semibold text-purple-600">4. 完成阶段</h4>
+                    <div class="title-4 text-purple-600">4. 完成阶段</div>
                     <p class="text-gray-600">验证输出、更新状态、保存上下文</p>
                 </div>
             </div>
 
-            <h2>智能体监控和调试</h2>
+            <div class="title-2">智能体监控和调试</div>
             <p>BMAD提供了丰富的工具来监控和调试智能体：</p>
 
             <pre><code class="language-bash"># 查看智能体状态
@@ -169,9 +169,9 @@ bmad agents performance --session=latest
 # 调试模式运行
 bmad agent analyst --debug --task="分析移动应用市场"</code></pre>
 
-            <h2>智能体性能优化</h2>
+            <div class="title-2">智能体性能优化</div>
             <div class="bg-yellow-50 p-4 rounded-lg my-6">
-                <h3 class="text-yellow-800 font-semibold mb-2">⚡ 优化技巧</h3>
+                <div class="title-3 text-yellow-800">⚡ 优化技巧</div>
                 <ul class="text-yellow-700 space-y-2">
                     <li><strong>上下文大小</strong> - 控制输入上下文的大小以提高响应速度</li>
                     <li><strong>并行处理</strong> - 对独立任务使用并行智能体执行</li>
@@ -180,32 +180,32 @@ bmad agent analyst --debug --task="分析移动应用市场"</code></pre>
                 </ul>
             </div>
 
-            <h2>高级智能体模式</h2>
+            <div class="title-2">高级智能体模式</div>
             <p>掌握这些高级模式可以充分发挥智能体系统的潜力：</p>
 
             <div class="grid md:grid-cols-2 gap-6 my-8">
                 <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
-                    <h3 class="text-indigo-800 font-semibold mb-3">🔄 循环协作模式</h3>
+                    <div class="title-3 text-indigo-800">🔄 循环协作模式</div>
                     <p class="text-indigo-700">智能体在多轮交互中不断完善输出，适用于复杂的设计和规划任务。</p>
                 </div>
                 <div class="bg-pink-50 p-6 rounded-lg border border-pink-200">
-                    <h3 class="text-pink-800 font-semibold mb-3">🎯 专家咨询模式</h3>
+                    <div class="title-3 text-pink-800">🎯 专家咨询模式</div>
                     <p class="text-pink-700">临时激活特定领域的专家智能体，为特殊问题提供深度见解。</p>
                 </div>
                 <div class="bg-teal-50 p-6 rounded-lg border border-teal-200">
-                    <h3 class="text-teal-800 font-semibold mb-3">🏗️ 分层委托模式</h3>
+                    <div class="title-3 text-teal-800">🏗️ 分层委托模式</div>
                     <p class="text-teal-700">高级智能体将复杂任务分解并委托给专门的子智能体执行。</p>
                 </div>
                 <div class="bg-amber-50 p-6 rounded-lg border border-amber-200">
-                    <h3 class="text-amber-800 font-semibold mb-3">🔍 验证和质检模式</h3>
+                    <div class="title-3 text-amber-800">🔍 验证和质检模式</div>
                     <p class="text-amber-700">独立的质检智能体验证其他智能体的输出质量和一致性。</p>
                 </div>
             </div>
 
-            <h2>智能体最佳实践</h2>
+            <div class="title-2">智能体最佳实践</div>
             <div class="space-y-4">
                 <div class="bg-green-50 p-4 rounded-lg border border-green-200">
-                    <h4 class="text-green-800 font-semibold">✅ 推荐做法</h4>
+                    <div class="title-4 text-green-800">✅ 推荐做法</div>
                     <ul class="text-green-700 mt-2 space-y-1">
                         <li>• 为每个智能体定义清晰的职责边界</li>
                         <li>• 使用版本控制管理智能体配置</li>
@@ -214,7 +214,7 @@ bmad agent analyst --debug --task="分析移动应用市场"</code></pre>
                     </ul>
                 </div>
                 <div class="bg-red-50 p-4 rounded-lg border border-red-200">
-                    <h4 class="text-red-800 font-semibold">❌ 避免问题</h4>
+                    <div class="title-4 text-red-800">❌ 避免问题</div>
                     <ul class="text-red-700 mt-2 space-y-1">
                         <li>• 不要让智能体承担过多不相关的职责</li>
                         <li>• 避免创建过于复杂的智能体依赖关系</li>
@@ -239,11 +239,11 @@ bmad agent analyst --debug --task="分析移动应用市场"</code></pre>
 BMadTutorial.prototype.getWorkflowsContent = function() {
     return `
         <div class="prose prose-lg max-w-none">
-            <h1>工作流设计</h1>
+            <div class="title-1">工作流设计</div>
 
             <p class="text-xl text-gray-600 mb-6">学习如何设计和实现高效的BMAD工作流程，协调智能体协作完成复杂项目。</p>
 
-            <h2>工作流基础</h2>
+            <div class="title-2">工作流基础</div>
             <p>BMAD工作流使用YAML格式定义，描述了智能体如何协作完成特定目标：</p>
 
             <pre><code class="language-yaml">name: "全栈Web应用开发工作流"
@@ -437,33 +437,33 @@ completion_criteria:
   - "安全扫描无高风险项"
   - "用户验收测试通过"</code></pre>
 
-            <h2>工作流设计模式</h2>
+            <div class="title-2">工作流设计模式</div>
             <p>BMAD支持多种工作流设计模式，适应不同的项目需求：</p>
 
             <div class="grid md:grid-cols-2 gap-6 my-8">
                 <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
-                    <h3 class="text-blue-800 font-semibold mb-3">🔄 瀑布式工作流</h3>
+                    <div class="title-3 text-blue-800">🔄 瀑布式工作流</div>
                     <p class="text-blue-700">阶段性依次执行，适合需求明确、变更较少的项目。</p>
                     <pre class="text-xs mt-2"><code>分析 → 设计 → 开发 → 测试 → 部署</code></pre>
                 </div>
                 <div class="bg-green-50 p-6 rounded-lg border border-green-200">
-                    <h3 class="text-green-800 font-semibold mb-3">🔀 并行工作流</h3>
+                    <div class="title-3 text-green-800">🔀 并行工作流</div>
                     <p class="text-green-700">多个智能体并行工作，适合独立性强的任务。</p>
                     <pre class="text-xs mt-2"><code>前端开发 || 后端开发 || 数据库设计</code></pre>
                 </div>
                 <div class="bg-purple-50 p-6 rounded-lg border border-purple-200">
-                    <h3 class="text-purple-800 font-semibold mb-3">🔁 迭代工作流</h3>
+                    <div class="title-3 text-purple-800">🔁 迭代工作流</div>
                     <p class="text-purple-700">短周期迭代，持续改进，适合敏捷开发。</p>
                     <pre class="text-xs mt-2"><code>Sprint 1 → Sprint 2 → Sprint 3...</code></pre>
                 </div>
                 <div class="bg-orange-50 p-6 rounded-lg border border-orange-200">
-                    <h3 class="text-orange-800 font-semibold mb-3">🌊 事件驱动工作流</h3>
+                    <div class="title-3 text-orange-800">🌊 事件驱动工作流</div>
                     <p class="text-orange-700">基于事件触发，适合响应式和自适应场景。</p>
                     <pre class="text-xs mt-2"><code>事件触发 → 条件判断 → 动态路由</code></pre>
                 </div>
             </div>
 
-            <h2>工作流配置和自定义</h2>
+            <div class="title-2">工作流配置和自定义</div>
             <p>通过配置文件可以灵活定制工作流行为：</p>
 
             <pre><code class="language-yaml"># workflow-config.yml
@@ -507,7 +507,7 @@ quality_settings:
     vulnerability_threshold: "medium"
     compliance_checks: ["owasp", "gdpr"]</code></pre>
 
-            <h2>动态工作流调整</h2>
+            <div class="title-2">动态工作流调整</div>
             <p>BMAD支持在执行过程中动态调整工作流：</p>
 
             <pre><code class="language-bash"># 实时工作流管理命令
@@ -525,12 +525,12 @@ bmad workflow add-gate --type=security --phase=development
 # 动态插入新阶段
 bmad workflow insert-phase --after=planning --file=extra-design-phase.yml</code></pre>
 
-            <h2>工作流监控和分析</h2>
+            <div class="title-2">工作流监控和分析</div>
             <div class="bg-gray-50 p-6 rounded-lg my-6">
-                <h3 class="font-semibold mb-4">监控指标</h3>
+                <div class="title-3">监控指标</div>
                 <div class="grid md:grid-cols-3 gap-4">
                     <div>
-                        <h4 class="font-medium text-blue-600">执行指标</h4>
+                        <div class="title-4 text-blue-600">执行指标</div>
                         <ul class="text-sm space-y-1 mt-2">
                             <li>• 阶段完成时间</li>
                             <li>• 智能体利用率</li>
@@ -539,7 +539,7 @@ bmad workflow insert-phase --after=planning --file=extra-design-phase.yml</code>
                         </ul>
                     </div>
                     <div>
-                        <h4 class="font-medium text-green-600">质量指标</h4>
+                        <div class="title-4 text-green-600">质量指标</div>
                         <ul class="text-sm space-y-1 mt-2">
                             <li>• 质量门控通过率</li>
                             <li>• 缺陷密度</li>
@@ -548,7 +548,7 @@ bmad workflow insert-phase --after=planning --file=extra-design-phase.yml</code>
                         </ul>
                     </div>
                     <div>
-                        <h4 class="font-medium text-purple-600">业务指标</h4>
+                        <div class="title-4 text-purple-600">业务指标</div>
                         <ul class="text-sm space-y-1 mt-2">
                             <li>• 交付速度</li>
                             <li>• 成本效率</li>
@@ -559,10 +559,10 @@ bmad workflow insert-phase --after=planning --file=extra-design-phase.yml</code>
                 </div>
             </div>
 
-            <h2>工作流优化策略</h2>
+            <div class="title-2">工作流优化策略</div>
             <div class="space-y-4">
                 <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
-                    <h4 class="text-yellow-800 font-semibold">⚡ 性能优化</h4>
+                    <div class="title-4 text-yellow-800">⚡ 性能优化</div>
                     <ul class="text-yellow-700 mt-2 space-y-1">
                         <li>• 识别和消除瓶颈阶段</li>
                         <li>• 优化智能体资源分配</li>
@@ -571,7 +571,7 @@ bmad workflow insert-phase --after=planning --file=extra-design-phase.yml</code>
                     </ul>
                 </div>
                 <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
-                    <h4 class="text-blue-800 font-semibold">🔧 灵活性提升</h4>
+                    <div class="title-4 text-blue-800">🔧 灵活性提升</div>
                     <ul class="text-blue-700 mt-2 space-y-1">
                         <li>• 模块化工作流设计</li>
                         <li>• 可配置的执行路径</li>
@@ -580,7 +580,7 @@ bmad workflow insert-phase --after=planning --file=extra-design-phase.yml</code>
                     </ul>
                 </div>
                 <div class="bg-green-50 p-4 rounded-lg border border-green-200">
-                    <h4 class="text-green-800 font-semibold">📊 可观测性</h4>
+                    <div class="title-4 text-green-800">📊 可观测性</div>
                     <ul class="text-green-700 mt-2 space-y-1">
                         <li>• 全面的日志记录</li>
                         <li>• 实时监控仪表板</li>
@@ -591,7 +591,7 @@ bmad workflow insert-phase --after=planning --file=extra-design-phase.yml</code>
             </div>
 
             <div class="mt-8 p-6 bg-indigo-50 border border-indigo-200 rounded-lg">
-                <h3 class="text-indigo-800 font-semibold mb-2">🎯 工作流设计小结</h3>
+                <div class="title-3 text-indigo-800">🎯 工作流设计小结</div>
                 <p class="text-indigo-700">良好的工作流设计是项目成功的关键。通过合理规划阶段、配置智能体协作和建立质量门控，你可以创建高效、可靠的开发流程。</p>
             </div>
 

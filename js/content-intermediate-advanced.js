@@ -4,15 +4,15 @@
 BMadTutorial.prototype.getTemplatesContent = function() {
     return `
         <div class="prose prose-lg max-w-none">
-            <h1>模板系统</h1>
+            <div class="title-1">模板系统</div>
 
             <p class="text-xl text-gray-600 mb-6">掌握BMAD的模板系统，创建一致、高质量的文档和代码输出。</p>
 
-            <h2>模板系统概述</h2>
+            <div class="title-2">模板系统概述</div>
             <p>BMAD模板系统结合了文档生成和LLM指令，确保输出的一致性和质量：</p>
 
             <div class="bg-blue-50 p-4 rounded-lg my-6">
-                <h3 class="text-blue-800 font-semibold mb-2">🎯 模板系统特性</h3>
+                <div class="title-3 text-blue-800">🎯 模板系统特性</div>
                 <ul class="text-blue-700 space-y-1">
                     <li>• <strong>变量替换</strong> - 动态内容注入</li>
                     <li>• <strong>条件逻辑</strong> - 基于上下文的内容生成</li>
@@ -22,10 +22,10 @@ BMadTutorial.prototype.getTemplatesContent = function() {
                 </ul>
             </div>
 
-            <h2>基础模板语法</h2>
+            <div class="title-2">基础模板语法</div>
             <p>BMAD使用Handlebars语法加强化的LLM指令：</p>
 
-            <pre><code class="language-handlebars"># {{project.name}} - 产品需求文档
+            <pre><code class="language-markdown"># {{project.name}} - 产品需求文档
 
 **创建日期：** {{current.date}}
 **版本：** {{project.version}}
@@ -150,7 +150,7 @@ BMadTutorial.prototype.getTemplatesContent = function() {
 4. 建议替代方案（如果适用）
 {{/instruction}}</code></pre>
 
-            <h2>模板变量和上下文</h2>
+            <div class="title-2">模板变量和上下文</div>
             <p>模板可以访问丰富的上下文信息：</p>
 
             <pre><code class="language-json">{
@@ -211,10 +211,10 @@ BMadTutorial.prototype.getTemplatesContent = function() {
   }
 }</code></pre>
 
-            <h2>条件逻辑和循环</h2>
+            <div class="title-2">条件逻辑和循环</div>
             <p>使用条件语句和循环创建动态模板：</p>
 
-            <pre><code class="language-handlebars">{{!-- 条件渲染 --}}
+            <pre><code class="language-markdown">{{!-- 条件渲染 --}}
 {{#if project.has_backend}}
 ## 后端架构设计
 
@@ -279,10 +279,10 @@ BMadTutorial.prototype.getTemplatesContent = function() {
   {{/case}}
 {{/switch}}</code></pre>
 
-            <h2>模板继承和组合</h2>
+            <div class="title-2">模板继承和组合</div>
             <p>通过模板继承实现复用和扩展：</p>
 
-            <pre><code class="language-handlebars">{{!-- base-document.hbs 基础模板 --}}
+            <pre><code class="language-markdown">{{!-- base-document.hbs 基础模板 --}}
 <!DOCTYPE document>
 # {{document.title}}
 
@@ -335,7 +335,7 @@ BMadTutorial.prototype.getTemplatesContent = function() {
 - 联系信息
 {{/inline}}</code></pre>
 
-            <h2>自定义模板函数</h2>
+            <div class="title-2">自定义模板函数</div>
             <p>创建自定义函数扩展模板能力：</p>
 
             <pre><code class="language-javascript">// custom-helpers.js
@@ -370,9 +370,9 @@ const customHelpers = {
 // {{complexityScore features.core}}
 // {{generateId "feature" this.name}}</code></pre>
 
-            <h2>模板验证和测试</h2>
+            <div class="title-2">模板验证和测试</div>
             <div class="bg-yellow-50 p-4 rounded-lg my-6">
-                <h3 class="text-yellow-800 font-semibold mb-2">🧪 模板质量保证</h3>
+                <div class="title-3 text-yellow-800">🧪 模板质量保证</div>
                 <ul class="text-yellow-700 space-y-1">
                     <li>• <strong>语法验证</strong> - 检查模板语法错误</li>
                     <li>• <strong>变量检查</strong> - 验证所有变量都有定义</li>
@@ -393,10 +393,10 @@ bmad template generate --template=prd-template.hbs --output=sample-prd.md
 # 模板性能分析
 bmad template profile --template=complex-template.hbs</code></pre>
 
-            <h2>模板最佳实践</h2>
+            <div class="title-2">模板最佳实践</div>
             <div class="space-y-4">
                 <div class="bg-green-50 p-4 rounded-lg border border-green-200">
-                    <h4 class="text-green-800 font-semibold">✅ 推荐做法</h4>
+                    <div class="title-4 text-green-800">✅ 推荐做法</div>
                     <ul class="text-green-700 mt-2 space-y-1">
                         <li>• 保持模板逻辑简单，复杂处理放在数据准备阶段</li>
                         <li>• 使用有意义的变量名和注释</li>
@@ -406,7 +406,7 @@ bmad template profile --template=complex-template.hbs</code></pre>
                     </ul>
                 </div>
                 <div class="bg-red-50 p-4 rounded-lg border border-red-200">
-                    <h4 class="text-red-800 font-semibold">❌ 避免问题</h4>
+                    <div class="title-4 text-red-800">❌ 避免问题</div>
                     <ul class="text-red-700 mt-2 space-y-1">
                         <li>• 不要在模板中嵌入过多的业务逻辑</li>
                         <li>• 避免深层嵌套的条件语句</li>
@@ -432,16 +432,16 @@ bmad template profile --template=complex-template.hbs</code></pre>
 BMadTutorial.prototype.getProjectManagementContent = function() {
     return `
         <div class="prose prose-lg max-w-none">
-            <h1>项目管理实践</h1>
+            <div class="title-1">项目管理实践</div>
 
             <p class="text-xl text-gray-600 mb-6">学习如何使用BMAD-METHOD进行高效的项目管理，从规划到交付的全过程。</p>
 
-            <h2>BMAD项目管理理念</h2>
+            <div class="title-2">BMAD项目管理理念</div>
             <p>BMAD项目管理结合了敏捷方法和AI智能体，创造了独特的管理体验：</p>
 
             <div class="grid md:grid-cols-2 gap-6 my-8">
                 <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
-                    <h3 class="text-blue-800 font-semibold mb-3">🎯 传统项目管理痛点</h3>
+                    <div class="title-3 text-blue-800">🎯 传统项目管理痛点</div>
                     <ul class="text-blue-700 space-y-2">
                         <li>• 需求文档快速过时</li>
                         <li>• 团队沟通效率低下</li>
@@ -451,7 +451,7 @@ BMadTutorial.prototype.getProjectManagementContent = function() {
                     </ul>
                 </div>
                 <div class="bg-green-50 p-6 rounded-lg border border-green-200">
-                    <h3 class="text-green-800 font-semibold mb-3">✅ BMAD解决方案</h3>
+                    <div class="title-3 text-green-800">✅ BMAD解决方案</div>
                     <ul class="text-green-700 space-y-2">
                         <li>• 智能体持续维护文档</li>
                         <li>• 自动化状态同步</li>
@@ -462,15 +462,15 @@ BMadTutorial.prototype.getProjectManagementContent = function() {
                 </div>
             </div>
 
-            <h2>项目生命周期管理</h2>
+            <div class="title-2">项目生命周期管理</div>
             <p>BMAD将项目分为五个主要阶段，每个阶段都有专门的智能体支持：</p>
 
             <div class="space-y-6">
                 <div class="bg-white p-6 rounded-lg shadow border">
-                    <h3 class="text-purple-600 font-semibold text-lg mb-3">🔍 1. 发现和分析阶段</h3>
+                    <div class="title-3 text-purple-600">🔍 1. 发现和分析阶段</div>
                     <div class="grid md:grid-cols-2 gap-4">
                         <div>
-                            <h4 class="font-medium mb-2">主要活动：</h4>
+                            <div class="title-4">主要活动：</div>
                             <ul class="text-sm space-y-1">
                                 <li>• 市场和竞争分析</li>
                                 <li>• 技术可行性研究</li>
@@ -479,7 +479,7 @@ BMadTutorial.prototype.getProjectManagementContent = function() {
                             </ul>
                         </div>
                         <div>
-                            <h4 class="font-medium mb-2">智能体协作：</h4>
+                            <div class="title-4">智能体协作：</div>
                             <ul class="text-sm space-y-1">
                                 <li>• Analyst: 数据收集和分析</li>
                                 <li>• Research Agent: 技术调研</li>
@@ -493,10 +493,10 @@ BMadTutorial.prototype.getProjectManagementContent = function() {
                 </div>
 
                 <div class="bg-white p-6 rounded-lg shadow border">
-                    <h3 class="text-blue-600 font-semibold text-lg mb-3">📋 2. 产品规划阶段</h3>
+                    <div class="title-3 text-blue-600">📋 2. 产品规划阶段</div>
                     <div class="grid md:grid-cols-2 gap-4">
                         <div>
-                            <h4 class="font-medium mb-2">主要活动：</h4>
+                            <div class="title-4">主要活动：</div>
                             <ul class="text-sm space-y-1">
                                 <li>• 产品需求文档编写</li>
                                 <li>• 用户故事创建</li>
@@ -505,7 +505,7 @@ BMadTutorial.prototype.getProjectManagementContent = function() {
                             </ul>
                         </div>
                         <div>
-                            <h4 class="font-medium mb-2">智能体协作：</h4>
+                            <div class="title-4">智能体协作：</div>
                             <ul class="text-sm space-y-1">
                                 <li>• Product Manager: PRD创建</li>
                                 <li>• UX Designer: 用户体验设计</li>
@@ -519,10 +519,10 @@ BMadTutorial.prototype.getProjectManagementContent = function() {
                 </div>
 
                 <div class="bg-white p-6 rounded-lg shadow border">
-                    <h3 class="text-green-600 font-semibold text-lg mb-3">🏗️ 3. 架构设计阶段</h3>
+                    <div class="title-3 text-green-600">🏗️ 3. 架构设计阶段</div>
                     <div class="grid md:grid-cols-2 gap-4">
                         <div>
-                            <h4 class="font-medium mb-2">主要活动：</h4>
+                            <div class="title-4">主要活动：</div>
                             <ul class="text-sm space-y-1">
                                 <li>• 系统架构设计</li>
                                 <li>• 技术栈选型</li>
@@ -531,7 +531,7 @@ BMadTutorial.prototype.getProjectManagementContent = function() {
                             </ul>
                         </div>
                         <div>
-                            <h4 class="font-medium mb-2">智能体协作：</h4>
+                            <div class="title-4">智能体协作：</div>
                             <ul class="text-sm space-y-1">
                                 <li>• Architect: 整体架构</li>
                                 <li>• Database Designer: 数据设计</li>
@@ -545,10 +545,10 @@ BMadTutorial.prototype.getProjectManagementContent = function() {
                 </div>
 
                 <div class="bg-white p-6 rounded-lg shadow border">
-                    <h3 class="text-orange-600 font-semibold text-lg mb-3">⚡ 4. 敏捷开发阶段</h3>
+                    <div class="title-3 text-orange-600">⚡ 4. 敏捷开发阶段</div>
                     <div class="grid md:grid-cols-2 gap-4">
                         <div>
-                            <h4 class="font-medium mb-2">主要活动：</h4>
+                            <div class="title-4">主要活动：</div>
                             <ul class="text-sm space-y-1">
                                 <li>• 迭代规划和执行</li>
                                 <li>• 代码开发和测试</li>
@@ -557,7 +557,7 @@ BMadTutorial.prototype.getProjectManagementContent = function() {
                             </ul>
                         </div>
                         <div>
-                            <h4 class="font-medium mb-2">智能体协作：</h4>
+                            <div class="title-4">智能体协作：</div>
                             <ul class="text-sm space-y-1">
                                 <li>• Scrum Master: 流程管理</li>
                                 <li>• Developer: 代码实现</li>
@@ -571,10 +571,10 @@ BMadTutorial.prototype.getProjectManagementContent = function() {
                 </div>
 
                 <div class="bg-white p-6 rounded-lg shadow border">
-                    <h3 class="text-red-600 font-semibold text-lg mb-3">🚀 5. 发布和维护阶段</h3>
+                    <div class="title-3 text-red-600">🚀 5. 发布和维护阶段</div>
                     <div class="grid md:grid-cols-2 gap-4">
                         <div>
-                            <h4 class="font-medium mb-2">主要活动：</h4>
+                            <div class="title-4">主要活动：</div>
                             <ul class="text-sm space-y-1">
                                 <li>• 生产环境部署</li>
                                 <li>• 性能监控和优化</li>
@@ -583,7 +583,7 @@ BMadTutorial.prototype.getProjectManagementContent = function() {
                             </ul>
                         </div>
                         <div>
-                            <h4 class="font-medium mb-2">智能体协作：</h4>
+                            <div class="title-4">智能体协作：</div>
                             <ul class="text-sm space-y-1">
                                 <li>• DevOps Engineer: 部署运维</li>
                                 <li>• Support Agent: 用户支持</li>
@@ -597,7 +597,7 @@ BMadTutorial.prototype.getProjectManagementContent = function() {
                 </div>
             </div>
 
-            <h2>故事驱动的项目管理</h2>
+            <div class="title-2">故事驱动的项目管理</div>
             <p>BMAD使用故事驱动的方法来管理项目进度和质量：</p>
 
             <pre><code class="language-yaml"># 故事管理配置
@@ -633,14 +633,14 @@ story_management:
     quality_checking: true
     reporting: true</code></pre>
 
-            <h2>团队协作和沟通</h2>
+            <div class="title-2">团队协作和沟通</div>
             <p>BMAD提供了多种机制来促进团队协作：</p>
 
             <div class="bg-gray-50 p-6 rounded-lg my-6">
-                <h3 class="font-semibold mb-4">协作工具集</h3>
+                <div class="title-3">协作工具集</div>
                 <div class="grid md:grid-cols-3 gap-4">
                     <div>
-                        <h4 class="font-medium text-blue-600">实时同步</h4>
+                        <div class="title-4 text-blue-600">实时同步</div>
                         <ul class="text-sm space-y-1 mt-2">
                             <li>• 智能体状态同步</li>
                             <li>• 文档实时更新</li>
@@ -649,7 +649,7 @@ story_management:
                         </ul>
                     </div>
                     <div>
-                        <h4 class="font-medium text-green-600">知识共享</h4>
+                        <div class="title-4 text-green-600">知识共享</div>
                         <ul class="text-sm space-y-1 mt-2">
                             <li>• 决策记录保存</li>
                             <li>• 最佳实践积累</li>
@@ -658,7 +658,7 @@ story_management:
                         </ul>
                     </div>
                     <div>
-                        <h4 class="font-medium text-purple-600">质量保证</h4>
+                        <div class="title-4 text-purple-600">质量保证</div>
                         <ul class="text-sm space-y-1 mt-2">
                             <li>• 自动化代码审查</li>
                             <li>• 架构合规检查</li>
@@ -669,7 +669,7 @@ story_management:
                 </div>
             </div>
 
-            <h2>项目监控和报告</h2>
+            <div class="title-2">项目监控和报告</div>
             <p>BMAD提供全面的项目监控和报告功能：</p>
 
             <pre><code class="language-bash"># 项目状态监控
@@ -688,10 +688,10 @@ bmad analytics quality --metrics=all
 bmad analytics team --include-velocity</code></pre>
 
             <div class="bg-indigo-50 p-4 rounded-lg my-6">
-                <h3 class="text-indigo-800 font-semibold mb-2">📊 关键指标监控</h3>
+                <div class="title-3 text-indigo-800">📊 关键指标监控</div>
                 <div class="grid md:grid-cols-2 gap-4">
                     <div>
-                        <h4 class="font-medium text-indigo-700">进度指标</h4>
+                        <div class="title-4 text-indigo-700">进度指标</div>
                         <ul class="text-indigo-600 text-sm space-y-1 mt-2">
                             <li>• 燃尽图和燃起图</li>
                             <li>• 速度趋势分析</li>
@@ -700,7 +700,7 @@ bmad analytics team --include-velocity</code></pre>
                         </ul>
                     </div>
                     <div>
-                        <h4 class="font-medium text-indigo-700">质量指标</h4>
+                        <div class="title-4 text-indigo-700">质量指标</div>
                         <ul class="text-indigo-600 text-sm space-y-1 mt-2">
                             <li>• 缺陷密度统计</li>
                             <li>• 代码质量评分</li>
