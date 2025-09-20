@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMAD-METHOD 教程网站 - 从入门到精通</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .sidebar-transition {
+            transition: transform 0.3s ease-in-out;
+        }
+        .content-fade {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .content-fade.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .nav-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .progress-bar {
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Header -->
+    <header class="gradient-bg text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                        <span class="text-purple-600 font-bold text-xl">B</span>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold">BMAD-METHOD™ 教程</h1>
+                        <p class="text-purple-200">通用AI智能体框架 - 从入门到精通</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-4">
+                    <a href="https://github.com/bmad-code-org/BMAD-METHOD" target="_blank" class="px-4 py-2 bg-white bg-opacity-20 rounded-lg hover:bg-opacity-30 transition">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <nav class="w-80 bg-white shadow-lg sidebar-transition" id="sidebar">
+            <div class="p-6">
+                <!-- Progress Indicator -->
+                <div class="mb-6">
+                    <div class="flex justify-between text-sm text-gray-600 mb-2">
+                        <span>学习进度</span>
+                        <span id="progress-text">0%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="progress-bar bg-purple-600 h-2 rounded-full" style="width: 0%" id="progress-bar"></div>
+                    </div>
+                </div>
+
+                <!-- Navigation Menu -->
+                <div class="space-y-2">
+                    <!-- 入门篇 -->
+                    <div class="nav-section">
+                        <h3 class="font-semibold text-gray-800 mb-2 px-3 py-2 bg-gray-50 rounded">🚀 入门篇</h3>
+                        <ul class="space-y-1 ml-4">
+                            <li><a href="#intro" class="nav-item block px-3 py-2 rounded text-gray-700 hover:text-purple-600" data-section="intro">什么是 BMAD-METHOD</a></li>
+                            <li><a href="#installation" class="nav-item block px-3 py-2 rounded text-gray-700 hover:text-purple-600" data-section="installation">环境准备与安装</a></li>
+                            <li><a href="#first-project" class="nav-item block px-3 py-2 rounded text-gray-700 hover:text-purple-600" data-section="first-project">第一个项目</a></li>
+                            <li><a href="#basic-concepts" class="nav-item block px-3 py-2 rounded text-gray-700 hover:text-purple-600" data-section="basic-concepts">核心概念理解</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- 进阶篇 -->
+                    <div class="nav-section mt-6">
+                        <h3 class="font-semibold text-gray-800 mb-2 px-3 py-2 bg-gray-50 rounded">⚡ 进阶篇</h3>
+                        <ul class="space-y-1 ml-4">
+                            <li><a href="#agents" class="nav-item block px-3 py-2 rounded text-gray-700 hover:text-purple-600" data-section="agents">智能体系统深入</a></li>
+                            <li><a href="#workflows" class="nav-item block px-3 py-2 rounded text-gray-700 hover:text-purple-600" data-section="workflows">工作流设计</a></li>
+                            <li><a href="#templates" class="nav-item block px-3 py-2 rounded text-gray-700 hover:text-purple-600" data-section="templates">模板系统</a></li>
+                            <li><a href="#project-management" class="nav-item block px-3 py-2 rounded text-gray-700 hover:text-purple-600" data-section="project-management">项目管理实践</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- 高级篇 -->
+                    <div class="nav-section mt-6">
+                        <h3 class="font-semibold text-gray-800 mb-2 px-3 py-2 bg-gray-50 rounded">🎯 高级篇</h3>
+                        <ul class="space-y-1 ml-4">
+                            <li><a href="#custom-agents" class="nav-item block px-3 py-2 rounded text-gray-700 hover:text-purple-600" data-section="custom-agents">自定义智能体</a></li>
+                            <li><a href="#expansion-packs" class="nav-item block px-3 py-2 rounded text-gray-700 hover:text-purple-600" data-section="expansion-packs">扩展包开发</a></li>
+                            <li><a href="#architecture" class="nav-item block px-3 py-2 rounded text-gray-700 hover:text-purple-600" data-section="architecture">架构设计模式</a></li>
+                            <li><a href="#optimization" class="nav-item block px-3 py-2 rounded text-gray-700 hover:text-purple-600" data-section="optimization">性能优化</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- 实战篇 -->
+                    <div class="nav-section mt-6">
+                        <h3 class="font-semibold text-gray-800 mb-2 px-3 py-2 bg-gray-50 rounded">💼 实战篇</h3>
+                        <ul class="space-y-1 ml-4">
+                            <li><a href="#case-study-web" class="nav-item block px-3 py-2 rounded text-gray-700 hover:text-purple-600" data-section="case-study-web">Web应用开发案例</a></li>
+                            <li><a href="#case-study-api" class="nav-item block px-3 py-2 rounded text-gray-700 hover:text-purple-600" data-section="case-study-api">API服务开发案例</a></li>
+                            <li><a href="#case-study-creative" class="nav-item block px-3 py-2 rounded text-gray-700 hover:text-purple-600" data-section="case-study-creative">创意写作案例</a></li>
+                            <li><a href="#troubleshooting" class="nav-item block px-3 py-2 rounded text-gray-700 hover:text-purple-600" data-section="troubleshooting">常见问题解决</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8">
+            <div class="max-w-4xl mx-auto">
+                <!-- Content will be dynamically loaded here -->
+                <div id="content" class="content-fade">
+                    <!-- Welcome Section -->
+                    <div class="text-center py-16">
+                        <h1 class="text-4xl font-bold text-gray-800 mb-6">欢迎来到 BMAD-METHOD™ 学习之旅</h1>
+                        <p class="text-xl text-gray-600 mb-8">从零开始，掌握通用AI智能体框架的精髓</p>
+                        <div class="grid md:grid-cols-3 gap-8 mt-12">
+                            <div class="bg-white p-6 rounded-lg shadow-md">
+                                <div class="text-3xl mb-4">🚀</div>
+                                <h3 class="text-lg font-semibold mb-2">快速入门</h3>
+                                <p class="text-gray-600">零基础学习BMAD核心概念和基本操作</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg shadow-md">
+                                <div class="text-3xl mb-4">⚡</div>
+                                <h3 class="text-lg font-semibold mb-2">深入进阶</h3>
+                                <p class="text-gray-600">掌握智能体系统、工作流和项目管理</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg shadow-md">
+                                <div class="text-3xl mb-4">💼</div>
+                                <h3 class="text-lg font-semibold mb-2">实战应用</h3>
+                                <p class="text-gray-600">通过真实案例学习最佳实践</p>
+                            </div>
+                        </div>
+                        <div class="mt-12">
+                            <button onclick="startLearning()" class="px-8 py-3 gradient-bg text-white rounded-lg hover:shadow-lg transition font-semibold">
+                                开始学习 →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button id="menu-toggle" class="fixed bottom-4 left-4 md:hidden bg-purple-600 text-white p-3 rounded-full shadow-lg">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+    </button>
+
+    <script src="js/main.js"></script>
+    <script src="js/content-beginner.js"></script>
+    <script src="js/content-intermediate.js"></script>
+    <script src="js/content-intermediate-advanced.js"></script>
+    <script src="js/content-advanced.js"></script>
+    <script src="js/content-case-studies.js"></script>
+    <script src="js/search.js"></script>
+</body>
+</html>
