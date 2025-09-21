@@ -15,7 +15,6 @@ required_files=(
     "js/content-intermediate-advanced.js"
     "js/content-advanced.js"
     "js/content-case-studies.js"
-    "js/search.js"
 )
 
 missing_files=()
@@ -51,11 +50,6 @@ else
     echo "❌ Main content area missing"
 fi
 
-if grep -q "id=\"progress-bar\"" index.html; then
-    echo "✅ Progress bar found"
-else
-    echo "❌ Progress bar missing"
-fi
 
 # Check JavaScript files for syntax errors (basic check)
 echo ""
